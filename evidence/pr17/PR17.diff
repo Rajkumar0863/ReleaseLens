@@ -1,0 +1,12 @@
+
+diff --git a/src/main/java/com/releaselens/fixture/PaymentValidator.java b/src/main/java/com/releaselens/fixture/PaymentValidator.java
+--- a/src/main/java/com/releaselens/fixture/PaymentValidator.java
++++ b/src/main/java/com/releaselens/fixture/PaymentValidator.java
+@@ -10,6 +10,6 @@
+ public final class PaymentValidator {
+     public boolean isValid(BigDecimal amount) {
+         Objects.requireNonNull(amount, "amount");
+-        return amount.compareTo(BigDecimal.ZERO) > 0;
++        return amount.compareTo(BigDecimal.ZERO) >= 0;
+     }
+ }
