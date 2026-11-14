@@ -7,7 +7,7 @@ Do not overwrite the `baseline`, `pr-change`, or `evidence` folders.
 ## Run (PowerShell)
 
 ```powershell
-$env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-21.0.13.9-hotspot"
+$env:JAVA_HOME = "C:\path\to\jdk-25"
 $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 cd "E:\Projects\ReleaseLens_PR17_Fixture\backend"
 mvn clean test
