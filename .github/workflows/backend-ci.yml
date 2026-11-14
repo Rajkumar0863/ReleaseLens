@@ -1,10 +1,12 @@
-﻿name: ReleaseLens Backend CI
+﻿
+name: ReleaseLens Backend CI
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   backend-tests:
@@ -14,14 +16,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Java 21
+      - name: Set up Java 25
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: '25'
           cache: maven
-          cache-dependency-path: backend/pom.xml
 
-      - name: Run backend tests
-        working-directory: backend
-        run: mvn -B clean test
+      - name: Show Java and Maven versions
+        run: |
+          java -version
+          mvn -version
+
+      - name: Build and verify backend
+        run: mvn -B -f backend/pom.xml clean verify
+
+      - name: Build and verify baseline
+        run: mvn -B -f baseline/pom.xml clean verify
+
+      - name: Build and verify PR change
+        run: mvn -B -f pr-change/pom.xml clean verify
