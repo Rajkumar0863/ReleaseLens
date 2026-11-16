@@ -18,12 +18,18 @@ export interface ReleaseReview {
   evidencePolicy: string
 }
 
+const API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ||
+  'http://localhost:8080'
+).replace(/\/$/, '')
+
 export async function fetchReleaseReview(
   pullRequest = 17,
 ): Promise<ReleaseReview> {
   const response = await fetch(
-    `/api/reviews/pr${pullRequest}`,
+    `${API_BASE_URL}/api/reviews/pr${pullRequest}`,
     {
+      method: 'GET',
       headers: {
         Accept: 'application/json',
       },
