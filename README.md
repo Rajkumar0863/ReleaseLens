@@ -12,7 +12,7 @@ PR17-R1 (stipulated for this synthetic exercise): only strictly positive payment
 - `BoundaryOracle.java` is **not discovered by default** by Surefire because its class name does not match the standard `*Test` naming convention. It is an independently specified test to run explicitly **after** baseline measurements.
 
 ## Prerequisites
-JDK 25 (the latest LTS) and Apache Maven 3.9+; both fixture builds target Java 25. Maven plugins/dependencies need network access on first execution.
+JDK 25 (the latest LTS) and Apache Maven 3.9+. The backend and both fixture builds target Java 25. Maven plugins/dependencies need network access on first execution.
 
 ## Run (PowerShell or Bash)
 ```sh
