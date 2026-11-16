@@ -17,7 +17,8 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
                     .allowedOrigins(
-                        "http://localhost:5173"
+                        "http://localhost:5173",
+                        "https://release-lens-peach.vercel.app"
                     )
                     .allowedMethods("GET")
                     .allowedHeaders("Accept", "Content-Type")
